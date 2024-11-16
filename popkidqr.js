@@ -34,7 +34,7 @@ router.get('/', async (req, res) => {
 			saveCreds
 		} = await useMultiFileAuthState('./temp/' + id)
 		try {
-			let Qr_Code_By_popkid_Tech = Wasi_Tech({
+			let Qr_Code_By_Popkid_Tech = Wasi_Tech({
 				auth: state,
 				printQRInTerminal: false,
 				logger: pino({
@@ -56,13 +56,13 @@ router.get('/', async (req, res) => {
 					let data = fs.readFileSync(__dirname + `/temp/${id}/creds.json`);
 					await delay(800);
 				   let b64data = Buffer.from(data).toString('base64');
-				   let session = await Qr_Code_By_Danny_Tech.sendMessage(Qr_Code_By_Danny_Tech.user.id, { text: '' + b64data });
+				   let session = await Qr_Code_By_Danny_Tech.sendMessage(Qr_Code_By_Popkid_Tech.user.id, { text: '' + b64data });
 	
 				   let POPKID_MD_TEXT = `
 ┏━━━━━━━━━━━━━━
-┃𝐏𝐎𝐏𝐊𝐈𝐃 𝐌𝐃
-┃sᴜᴄᴄᴇssғᴜʟʟʏ ᴄᴏɴɴᴇᴄᴛᴇᴅ
-┃ʙʏ ᴘᴏᴘᴋɪᴅ🧑‍🚀
+ 🧯𝐏𝐎𝐏𝐊𝐈𝐃 𝐌𝐃
+┃sᴜᴄᴄᴇssғᴜʟʟʏ
+┃ʙʏ ᴘᴏᴘᴋɪᴅ
 ┗━━━━━━━━━━━━━━━
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 ❶ || 𝐶𝑟𝑒𝑎𝑡𝑜𝑟 = ᴘᴏᴘᴋɪᴅ🧑‍🚀
@@ -72,11 +72,11 @@ router.get('/', async (req, res) => {
 Please Follow My Support Channel
 Wanna talk to me?https://wa.me/254111385747?text=hello+bro+im+from+sessions+id+im+my+dm
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬
-©*ᴘᴏᴘᴋɪᴅ ᴍᴅ ᴄʀᴇᴀᴛᴇᴅ ʙʏ ᴘᴏᴘᴋɪᴅ■*
+©*■ᴘᴏᴘᴋɪᴅ ᴍᴅ ᴄʀᴇᴀᴛᴇᴅ ʙʏ ᴘᴏᴘᴋɪᴅ🧑‍🚀■*
 _____________________________________
 	
 _Don't Forget To Give Star To My Repo_`
-	 await Qr_Code_By_Popkid_Tech.sendMessage(Qr_Code_By_Popkid_Tech.user.id,{text:POPKID_MD_TEXT},{quoted:session})
+	 await Qr_Code_By_Danny_Tach.sendMessage(Qr_Code_By_Danny_Tech.user.id,{text:POPKID_MD_TEXT},{quoted:session})
 
 
 
