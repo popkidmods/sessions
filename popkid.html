@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>𝐏𝐎𝐏𝐊𝐈𝐃_𝐌𝐃 Login</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     /* Resetting body styling */
     body, html {
@@ -13,14 +14,37 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background: url('https://files.catbox.moe/y4meeu.jpg') no-repeat center center fixed;
-      background-size: cover;
-      font-family: Arial, sans-serif;
       overflow: hidden;
       color: #fff;
+      font-family: 'Arial', sans-serif;
+    }
+
+    /* Animated background */
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://files.catbox.moe/y4meeu.jpg') no-repeat center center fixed;
+      background-size: cover;
+      z-index: -1;
+      animation: zoomIn 20s infinite alternate;
+    }
+
+    /* Zoom-in keyframes */
+    @keyframes zoomIn {
+      0% {
+        transform: scale(1);
+      }
+      100% {
+        transform: scale(1.1);
+      }
     }
 
     .content-wrapper {
+      position: relative;
       text-align: center;
       background: rgba(0, 0, 0, 0.8);
       padding: 40px;
@@ -30,14 +54,57 @@
     }
 
     h1 {
-      font-size: 2rem;
+      font-size: 2.5rem; /* Adjusted size for larger text */
       margin: 10px;
       color: #FFD700;
       text-shadow: 0 0 5px #FFF, 0 0 10px #FFD700;
+      position: relative;
+      z-index: 2;
+      font-family: 'Arial', sans-serif;
     }
 
-    .btn {
-      display: block;
+    /* Typing animation (word by word) */
+    .typing-animation {
+      display: inline-block;
+      overflow: hidden;
+      white-space: nowrap;
+      padding-right: 3px;
+      border-right: 3px solid #FFD700;
+      animation: typing 14s steps(30) 1s forwards, delete 14s steps(30) 15s forwards, blink 0.6s step-end infinite;
+    }
+
+    @keyframes typing {
+      0%, 50% {
+        width: 0;
+      }
+      100% {
+        width: 17ch; /* Adjusted for full fit */
+      }
+    }
+
+    @keyframes delete {
+      0%, 50% {
+        width: 17ch;
+      }
+      100% {
+        width: 0;
+      }
+    }
+
+    @keyframes blink {
+      from, to {
+        border-color: transparent;
+      }
+      50% {
+        border-color: #FFD700;
+      }
+    }
+
+    /* Main buttons (QR and Pair) */
+    .btn-main {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       width: 100%;
       max-width: 300px;
       padding: 10px;
@@ -50,15 +117,40 @@
       font-weight: bold;
       cursor: pointer;
       transition: background 0.3s, color 0.3s, transform 0.2s;
+      text-decoration: none;
     }
 
-    .btn:hover {
+    /* Secondary buttons (transparent and small) */
+    .btn-secondary {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: 220px; /* Adjusted for smaller buttons */
+      padding: 6px;
+      margin: 10px auto;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #ddd;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 6px;
+      font-size: 14px; /* Reduced font size */
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s, transform 0.2s;
+      text-decoration: none;
+    }
+
+    .btn i {
+      margin-right: 10px; /* Space between icon and text */
+    }
+
+    .btn-main:hover, .btn-secondary:hover {
       background-color: #32CD32;
       color: #000;
       transform: scale(1.05);
     }
 
-    .btn:active {
+    .btn-main:active, .btn-secondary:active {
       transform: scale(0.98);
       background-color: #20B2AA;
     }
@@ -80,17 +172,22 @@
 <body>
 
   <div class="content-wrapper">
-    <h1 class="floating-animation">🧑‍🚀𝐏𝐎𝐏𝐊𝐈𝐃 𝐌𝐃🧑‍🚀 </h1>
-    <h2 class="floating-animation">𝐩𝐨𝐩𝐤𝐢𝐝 𝐦𝐝 𝐜𝐫𝐞𝐚𝐭𝐞𝐝 𝐛𝐲 𝐩𝐨𝐩𝐤𝐢𝐝</h2>
+    <h1 class="floating-animation">
+      <span class="typing-animation">🧑‍🚀𝐏𝐎𝐏𝐊𝐈𝐃 𝐌𝐃🧑‍🚀 </span>
+    </h1>
+    <h2 class="floating-animation">ᴘᴏᴘᴋɪᴅ ᴍᴅ ᴄʀᴇᴀᴛᴇᴅ ʙʏ ᴘᴏᴘᴋɪᴅ🧑‍🚀</h2>
 
-    <button onclick="window.open('/popkkdqr')" class="btn">QR Code</button>
-    <button onclick="window.open('/pair')" class="btn">Pair Code</button>
-    <button onclick="window.open('https://github.com/popkidmods/smart-tech')" class="btn">Follow on GitHub</button>
-    <button onclick="window.open('https://wa.me/254111385747?text=Hello+bro+I\'m+from+your+beautiful+website')" class="btn">Contact creator</button>
-    <button onclick="https://whatsapp.com/channel/0029VadQrNI8KMqo79BiHr3l')" class="btn">Join WhatsApp Channel</button>
-    <button onclick="window.open('https://www.youtube.com/@popkidmods')" class="btn">Subscribe on YouTube</button>
-    <button onclick="window.open('https://t.me/popkiddevs')" class="btn">Join Telegram</button>
+    <!-- Main Buttons -->
+    <a href="/popkidqr" class="btn-main"><i class="fas fa-qrcode"></i>QR Code</a>
+    <a href="/pair" class="btn-main"><i class="fas fa-link"></i>Pair Code</a>
+
+    <!-- Secondary Buttons -->
+    <a href="https://whatsapp.com/channel/0029VadQrNI8KMqo79BiHr3l" target="_blank" class="btn-secondary"><i class="fab fa-whatsapp"></i>Join my WhatsApp Channel</a>
+    <a href="https://wa.me/254111385747?text=hello+bro+i'm+from+your+website" target="_blank" class="btn-secondary"><i class="fas fa-comments"></i>Chat with Me</a>
+    <a href="https://t.me/popkiddevs" target="_blank" class="btn-secondary"><i class="fab fa-telegram-plane"></i>Join My Telegram Channel</a>
+    <a href="https://github.com/popkidmods/sessions" target="_blank" class="btn-secondary"><i class="fab fa-github"></i>Follow Me on GitHub</a>
+    <a href="https://www.youtube.com/@popkidmods" target="_blank" class="btn-secondary"><i class="fab fa-youtube"></i>Subscribe My YouTube Channel</a>
   </div>
 
 </body>
-</html>
+      </html>
