@@ -2,110 +2,197 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>𝐏𝐎𝐏𝐊𝐈𝐃 𝐌𝐃 𝐋𝐎𝐆𝐈𝐍 Login</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>𝐏𝐎𝐏𝐊𝐈𝐃 𝐌𝐃</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
-    /* Resetting body styling */
-    body, html {
-      margin: 0;
-      padding: 0;
-      height: 100vh;
+    body {
       display: flex;
       justify-content: center;
       align-items: center;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+      color: #f6f5f5;
+      position: relative;
+    }
+
+    /* Background animation */
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       background: url('https://files.catbox.moe/y4meeu.jpg') no-repeat center center fixed;
       background-size: cover;
-      font-family: Arial, sans-serif;
-      overflow: hidden;
-      color: #fff;
+      z-index: -1;
+      animation: background-pan 20s infinite alternate linear;
     }
 
-    .content-wrapper {
+    @keyframes background-pan {
+      0% {
+        transform: scale(1) translate(0, 0);
+      }
+      50% {
+        transform: scale(1.1) translate(10px, -10px);
+      }
+      100% {
+        transform: scale(1.2) translate(-10px, 10px);
+      }
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 1;
+    }
+
+    .box {
+      width: 300px;
+      padding: 20px;
       text-align: center;
-      background: rgba(0, 0, 0, 0.8);
-      padding: 40px;
-      border-radius: 15px;
-      max-width: 90%;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(250, 249, 249, 0.7);
     }
 
-    h1 {
-      font-size: 2rem;
-      margin: 10px;
-      color: #FFD700;
-      text-shadow: 0 0 5px #FFF, 0 0 10px #FFD700;
+    .box h3 {
+      margin: 0;
     }
 
-    .btn {
-      display: block;
-      width: 100%;
+    .input-container {
+      display: flex;
+      background: black;
+      border-radius: 1rem;
+      margin: 10px 0;
       max-width: 300px;
-      padding: 10px;
-      margin: 15px auto;
-      background-color: #FF4500;
-      color: #fff;
-      border: 2px solid transparent;
-      border-radius: 8px;
-      font-size: 18px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background 0.3s, color 0.3s, transform 0.2s;
+      width: 100%;
     }
 
-    .btn:hover {
-      background-color: #32CD32;
+    .input-container input {
+      width: 75%;
+      padding: 0.8rem;
+      border: none;
+      background: #e8e8e8;
+      border-radius: 0.8rem 0 0 0.8rem;
       color: #000;
-      transform: scale(1.05);
     }
 
-    .btn:active {
-      transform: scale(0.98);
-      background-color: #20B2AA;
+    .input-container button {
+      width: 25%;
+      padding: 0.8rem;
+      background-color: #000;
+      color: #fff;
+      border-radius: 0 0.8rem 0.8rem 0;
+      cursor: pointer;
+      transition: all 0.2s;
     }
 
-    .floating-animation {
-      animation: float 5s infinite alternate ease-in-out;
+    .input-container button:hover {
+      background-color: red;
     }
 
-    @keyframes float {
-      from {
-        transform: translateY(0px);
-      }
-      to {
-        transform: translateY(-20px);
-      }
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .links a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: #fff;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 10px;
+      border-radius: 5px;
+      transition: all 0.2s;
+    }
+
+    .links a:hover {
+      background-color: #333;
+    }
+
+    .links i {
+      margin-right: 10px;
+    }
+
+    .footer-text {
+      margin-top: 20px;
+      color: #ccc;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
-
-  <div class="content-wrapper">
-    <h1 class="floating-animation">🧑‍🚀𝐏𝐎𝐏𝐊𝐈𝐃-𝐌𝐃👼 </h1>
-    <h2 class="floating-animation">ᴘᴏᴘᴋɪᴅ ᴍᴅ ᴄʀᴇᴀᴛᴇᴅ ʙʏ ᴘᴏᴘᴋɪᴅ🧯</h2>
-
-    <button onclick="window.open('/popkidqr')" class="btn">QR Code</button>
-    <button onclick="window.open('/pair')" class="btn">Pair Code</button>
+  <div class="container">
+    <div class="box">
+      <h3>𝐏𝐎𝐏𝐊𝐈𝐃 𝐌𝐃</h3>
+      <p>Enter phone number with a country code </p>
+      <div class="input-container">
+        <input type="number" id="number" placeholder="254111385747">
+        <button id="submit">Submit</button>
+      </div>
+      <main id="pair"></main>
+      <p class="footer-text">ᴘᴏᴘᴋɪᴅ ᴍᴅ ᴄʀᴇᴀᴛᴇᴅ ʙʏ ᴘᴏᴘᴋɪᴅ🧑‍🚀</p>
+    </div>
+    
+    <div class="links">
       <a href="https://whatsapp.com/channel/0029VadQrNI8KMqo79BiHr3l" target="_blank">
-        <i class="fab fa-whatsapp"></i> Follow My WhatsApp Channel
-      </a><br>
+        <i class="fab fa-whatsapp"></i> Join Our Channel
+      </a>
       <a href="https://wa.me/254111385747?text=hello+bro+i'm+from+your+website" target="_blank">
         <i class="fab fa-whatsapp"></i> Chat with Me
-      </a><br>
-      <a href="https://t.me/creepytwchnology" target="_blank">
-        <i class="fab fa-telegram"></i> Join My Telegram Channel
-      </a><br>
-      <a href="https://t.me/popkiddevs" target="_blank">
-        <i class="fab fa-github"></i> Follow Me on GitHub
-      </a><br>
-      <a href="https://www.youtube.com/@popkid-devs" target="_blank">
-        <i class="fab fa-youtube"></i> Subscribe My YouTube Channel
       </a>
-    
+      <a href="https://t.me/popkiddevs" target="_blank">
+        <i class="fab fa-telegram"></i> Join My Telegram Channel
+      </a>
+      <a href="https://github.com/popkidmods" target="_blank">
+        <i class="fab fa-github"></i> Follow Me on GitHub
+      </a>
+      <a href="https://www.youtube.com/@popkidmods" target="_blank">
+        <i class="fab fa-youtube"></i> Subscribe My Channel
+      </a>
+    </div>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js"></script>
-  </div>
+  <script>
+    const submitButton = document.getElementById("submit");
+    const numberInput = document.getElementById("number");
+    const pairOutput = document.getElementById("pair");
 
+    submitButton.addEventListener("click", async (e) => {
+      e.preventDefault();
+      const number = numberInput.value.replace(/[^0-9]/g, "");
+
+      if (!number) {
+        pairOutput.innerHTML = '<span style="color:white;">Enter your WhatsApp number with Country Code</span>';
+      } else if (number.length < 11) {
+        pairOutput.innerHTML = '<span style="color:red;">Invalid Number</span>';
+      } else {
+        pairOutput.innerHTML = '<span style="color:white;">Please Wait...</span>';
+        try {
+          const response = await axios.get(`/code?number=${number}`);
+          const code = response.data.code || "Service Unavailable";
+          pairOutput.innerHTML = `<span id="copy" onclick="copyToClipboard()" style="color:red; cursor:pointer;">CODE: <span style="color:white;">${code}</span></span>`;
+        } catch (error) {
+          pairOutput.innerHTML = '<span style="color:red;">Error fetching code</span>';
+        }
+      }
+    });
+
+    function copyToClipboard() {
+      const copyText = document.getElementById("copy").innerText.replace('CODE: ', '');
+      navigator.clipboard.writeText(copyText).then(() => {
+        document.getElementById("copy").innerText = "COPIED";
+      });
+    }
+  </script>
 </body>
 </html>
